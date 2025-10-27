@@ -1,0 +1,93 @@
+<div class="container mt-4" *ngIf="booking">
+  <h2>Booking Details (ID: {{ booking.id }})</h2>
+
+  <div class="mb-3">
+    <button class="btn btn-secondary" (click)="back()">Back to All Bookings</button>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-md-6"><strong>User ID:</strong> {{ booking.userId }}</div>
+    <div class="col-md-6"><strong>Package ID:</strong> {{ booking.packageId }}</div>
+    <div class="col-md-6"><strong>Total Amount:</strong> {{ booking.bookingTotalAmount | currency }}</div>
+    <div class="col-md-6"><strong>Status:</strong> {{ booking.bookingStatus }}</div>
+    <div class="col-md-6"><strong>Booking Date:</strong> {{ booking.bookingDate | date:'short' }}</div>
+    <div class="col-md-6" *ngIf="booking.transportId"><strong>Transport ID:</strong> {{ booking.transportId }}</div>
+  </div>
+
+  <!-- Passengers -->
+  <div *ngIf="booking.passengers?.length" class="mb-3">
+    <h4>Passengers</h4>
+    <table class="table table-bordered table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>DOB</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of booking.passengers">
+          <td>{{ p.passengerName }}</td>
+          <td>{{ p.passengerEmail }}</td>
+          <td>{{ p.passengerPhone }}</td>
+          <td>{{ p.passengerAge }}</td>
+          <td>{{ p.passengerGender }}</td>
+          <td>{{ p.passengerDob | date:'shortDate' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Itinerary -->
+  <div *ngIf="booking.itineraryPlans?.length" class="mb-3">
+    <h4>Itinerary</h4>
+    <table class="table table-bordered table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th>Day</th>
+          <th>Place</th>
+          <th>Description</th>
+          <th>Activities</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let i of booking.itineraryPlans">
+          <td>{{ i.dayNumber }}</td>
+          <td>{{ i.placeName }}</td>
+          <td>{{ i.placeDescription }}</td>
+          <td>{{ i.activities }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Hotels -->
+  <div *ngIf="booking.hotelInfos?.length" class="mb-3">
+    <h4>Hotels</h4>
+    <table class="table table-bordered table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th>Name</th>
+          <th>Location</th>
+          <th>Rating</th>
+          <th>Price/Night</th>
+          <th>Amenities</th>
+          <th>Image</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let h of booking.hotelInfos">
+          <td>{{ h.hotelName }}</td>
+          <td>{{ h.hotelLocation }}</td>
+          <td>{{ h.hotelRating }}</td>
+          <td>{{ h.hotelPricePerNight | currency }}</td>
+          <td>{{ h.hotelAmenities }}</td>
+          <td><img *ngIf="h.hotelImageUrl" [src]="h.hotelImageUrl" class="img-fluid pkg-img" /></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

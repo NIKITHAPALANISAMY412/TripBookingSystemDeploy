@@ -1,0 +1,32 @@
+<br><br><br><br><div class="container mt-4">
+  <h2>All Wallet Transactions</h2>
+
+  <table class="table table-bordered table-striped text-center" *ngIf="transactions.length > 0; else noTransactions">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Wallet ID</th>
+        <th>Type</th>
+        <th>Amount</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let t of transactions">
+        <td>{{ t.id }}</td>
+        <td>{{ t.walletId }}</td>
+        <td>{{ t.transactionType }}</td>
+        <td>{{ t.transactionAmount | currency }}</td>
+        <td>{{ t.transactionDate | date: 'short' }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noTransactions>
+    <p class="text-center text-muted">No transactions found.</p>
+  </ng-template>
+
+  <div class="text-center mt-3">
+    <button class="btn btn-secondary" (click)="backToAdmin()">Back</button>
+  </div>
+</div>

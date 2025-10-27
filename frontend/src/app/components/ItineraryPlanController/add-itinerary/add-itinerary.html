@@ -1,0 +1,44 @@
+<div class="container mt-4">
+  <h3 class="mb-4 text-primary text-center">Add Itinerary</h3>
+
+  <form [formGroup]="itineraryForm" (ngSubmit)="onSubmit()" class="shadow p-4 rounded bg-light">
+    <div class="mb-3">
+      <label for="packageId" class="form-label">Package ID</label>
+      <input type="number" id="packageId" formControlName="packageId" class="form-control" placeholder="Enter Package ID"/>
+      <div *ngIf="submitted && f['packageId'].errors" class="text-danger small">Package ID is required.</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="dayNumber" class="form-label">Day Number</label>
+      <input type="number" id="dayNumber" formControlName="dayNumber" class="form-control" placeholder="Enter Day Number"/>
+      <div *ngIf="submitted && f['dayNumber'].errors" class="text-danger small">Valid Day Number is required.</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="placeName" class="form-label">Place Name</label>
+      <input type="text" id="placeName" formControlName="placeName" class="form-control" placeholder="Enter Place Name"/>
+      <div *ngIf="submitted && f['placeName'].errors" class="text-danger small">Place name is required (max 100 characters).</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="placeDescription" class="form-label">Place Description</label>
+      <textarea id="placeDescription" formControlName="placeDescription" rows="3" class="form-control" placeholder="Describe the place"></textarea>
+      <div *ngIf="submitted && f['placeDescription'].errors" class="text-danger small">Description is required (max 255 characters).</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="activities" class="form-label">Activities</label>
+      <textarea id="activities" formControlName="activities" rows="3" class="form-control" placeholder="List activities"></textarea>
+      <div *ngIf="submitted && f['activities'].errors" class="text-danger small">Activities are required (max 200 characters).</div>
+    </div>
+
+    <div class="d-flex justify-content-between">
+      <button type="submit" class="btn btn-success">Add Itinerary</button>
+      <button type="button" class="btn btn-secondary" (click)="onReset()">Reset</button>
+    </div>
+     <div class="d-flex justify-content-between">
+      <button type="submit" class="btn btn-success">Add Itinerary</button>
+      <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+</div>

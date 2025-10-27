@@ -1,0 +1,56 @@
+
+
+<br>
+<br>
+<br>
+<h3>All Booking</h3>
+<div class="row">
+  <div class="col-md-4 mb-3" *ngFor="let booking of bookings">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title"><strong>Booking ID:</strong> {{ booking.id }}</h5>
+        <p><strong>Package ID:</strong> {{ booking.packageId }}</p>
+        <p><strong>Total Amount:</strong> ₹{{ booking.bookingTotalAmount || '-' }}</p>
+        <p><strong>Status:</strong> {{ booking.bookingStatus || 'N/A' }}</p>
+        <p><strong>Date:</strong> {{ booking.bookingDate || '-' }}</p>
+
+        <hr>
+
+        <div *ngIf="booking.passengers && booking.passengers.length > 0">
+          <h6>Passengers:</h6>
+          <ul>
+            <li *ngFor="let p of booking.passengers">
+              {{ p.passengerName || '-' }} ({{ p.passengerGender || '-' }}) - Age: {{ p.passengerAge || '-' }}
+            </li>
+          </ul>
+        </div>
+
+        <div *ngIf="booking.itineraryPlans && booking.itineraryPlans.length > 0">
+          <h6>Itinerary:</h6>
+          <ul>
+            <li *ngFor="let i of booking.itineraryPlans">
+              Day {{ i.dayNumber || '-' }}: {{ i.placeName || '-' }} - {{ i.placeDescription || '-' }}
+            </li>
+          </ul>
+        </div>
+
+        <div *ngIf="booking.hotelInfos && booking.hotelInfos.length > 0">
+          <h6>Hotels:</h6>
+          <ul>
+            <li *ngFor="let h of booking.hotelInfos">
+              <strong>{{ h.hotelName || '-' }}</strong> - {{ h.hotelLocation || '-' }}
+              <span *ngIf="h.hotelRating">({{ h.hotelRating }}/5)</span>
+            </li>
+          </ul>
+        </div>
+
+        <button class="btn btn-danger mt-2"
+                [disabled]="booking.bookingStatus === 'CANCELLED'"
+                (click)="cancelBooking(booking.id!)">
+          Cancel Booking
+        </button>
+
+      </div>
+    </div>
+  </div>
+</div>

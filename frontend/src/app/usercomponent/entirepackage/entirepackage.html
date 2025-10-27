@@ -1,0 +1,32 @@
+<br>
+<br>
+<br>
+<br>
+<div class="dashboard-main">
+  <h2 class="mb-4">All Travel Packages</h2>
+  <div class="packages-grid">
+    <div class="package-card" *ngFor="let pkg of packages">
+      <img
+        [src]="pkg.packageImageUrl || 'https://via.placeholder.com/300x200'"
+        alt="{{ pkg.packageTitle }}"
+      />
+      <div class="card-body">
+        <h5>{{ pkg.packageTitle }}</h5>
+        <p class="text-truncate">{{ pkg.packageDescription }}</p>
+        <ul>
+          <li><strong>From:</strong> {{ pkg.packageSourceCity }}</li>
+          <li><strong>To:</strong> {{ pkg.packageDestinationCity }}</li>
+          <li><strong>Price:</strong> ₹{{ pkg.packageBasePrice }}</li>
+          <li><strong>Duration:</strong> {{ pkg.packageDurationDays }} days</li>
+        </ul>
+        <a class="btn btn-primary w-100" [routerLink]="['/userdashboard/package', pkg.id]"
+          >View Details</a
+        >
+        <!-- In your package list -->
+        <a class="btn btn-primary w-100" [routerLink]="['/userdashboard/booking', pkg.id]"
+          >Book Now</a
+        >
+      </div>
+    </div>
+  </div>
+</div>

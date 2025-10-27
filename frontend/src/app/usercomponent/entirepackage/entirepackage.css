@@ -1,0 +1,112 @@
+.dashboard-main {
+  padding: 2rem;
+  background-color: #2b2b45; /* softer dark background */
+  color: #f0f0f0;
+}
+
+/* Packages grid */
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* Package card */
+.package-card {
+  background: linear-gradient(145deg, #1f1f3d, #242447);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.package-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Image */
+.package-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.package-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Card body */
+.card-body {
+  padding: 1rem 1.2rem;
+}
+
+.card-body h5 {
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  color: #4ed8a3;
+  font-weight: 600;
+}
+
+.card-body p {
+  font-size: 0.95rem;
+  color: #e0e0e0;
+  margin-bottom: 0.5rem;
+}
+
+/* Info list */
+.card-body ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 1rem 0;
+}
+
+.card-body ul li {
+  font-size: 0.88rem;
+  margin-bottom: 0.4rem;
+  color: #cfd8dc;
+}
+
+/* Highlight price and duration */
+.card-body ul li strong {
+  color: #4ed8a3;
+}
+
+/* Button */
+.card-body a.btn {
+  display: inline-block;
+  text-align: center;
+  background: linear-gradient(135deg, #4ed8a3, #3fc396);
+  color: #1f1f35;
+  font-weight: 600;
+  padding: 0.5rem 0;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.card-body a.btn:hover {
+  background: linear-gradient(135deg, #3fc396, #36b88e);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Optional: subtle overlay effect on hover */
+/* .package-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(78, 204, 163, 0.05);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: 16px;
+} */
+
+.package-card:hover::after {
+  opacity: 1;
+}

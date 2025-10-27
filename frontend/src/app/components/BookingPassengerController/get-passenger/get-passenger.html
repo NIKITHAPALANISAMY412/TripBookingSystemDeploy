@@ -1,0 +1,18 @@
+<div class="container mt-4">
+  <h2>Passenger Details</h2>
+
+  <div class="card p-3">
+    <p><strong>ID:</strong> {{ passenger.id }}</p>
+    <p><strong>Booking ID:</strong> {{ passenger.bookingId }}</p>
+    <p><strong>Name:</strong> {{ passenger.passengerName }}</p>
+    <p><strong>Email:</strong> {{ passenger.passengerEmail }}</p>
+    <p><strong>Phone:</strong> {{ passenger.passengerPhone }}</p>
+    <p><strong>Age:</strong> {{ passenger.passengerAge }}</p>
+    <p><strong>DOB:</strong> {{ passenger.passengerDob | date }}</p>
+    <p><strong>Gender:</strong> {{ passenger.passengerGender }}</p>
+  </div>
+
+  <div class="text-center mt-3">
+    <button class="btn btn-secondary" (click)="backToList()">Back</button>
+  </div>
+</div>

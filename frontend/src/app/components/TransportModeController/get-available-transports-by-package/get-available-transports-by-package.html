@@ -1,0 +1,44 @@
+<div class="container mt-4">
+  <h2 class="mb-3">Available Transports for Package #{{ packageId }}</h2>
+
+  <table class="table table-bordered table-striped text-center" *ngIf="availableTransports.length > 0; else noAvailable">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Type</th>
+        <th>Provider</th>
+        <th>Departure City</th>
+        <th>Arrival City</th>
+        <th>Departure Time</th>
+        <th>Arrival Time</th>
+        <th>Seat Price</th>
+        <th>Available Seats</th>
+        <th>Image</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let t of availableTransports">
+        <td>{{ t.id }}</td>
+        <td>{{ t.transportType }}</td>
+        <td>{{ t.transportProvider }}</td>
+        <td>{{ t.departureCity }}</td>
+        <td>{{ t.arrivalCity }}</td>
+        <td>{{ t.departureTime }}</td>
+        <td>{{ t.arrivalTime }}</td>
+        <td>{{ t.seatPrice | currency }}</td>
+        <td>{{ t.availableSeats }}</td>
+        <td>
+          <img *ngIf="t.transportImageUrl" [src]="t.transportImageUrl" alt="Transport" class="img-thumbnail transport-img" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noAvailable>
+    <p class="text-center text-muted">No available transports for this package.</p>
+  </ng-template>
+
+  <button class="btn btn-secondary mb-2" (click)="backToAll()">Back</button>
+
+
+</div>

@@ -1,0 +1,36 @@
+<div class="container mt-4">
+  <h3 class="text-primary mb-4 text-center">Update Itinerary</h3>
+
+  <form [formGroup]="itineraryForm" (ngSubmit)="onSubmit()" class="shadow p-4 rounded bg-light">
+    <div class="mb-3">
+      <label class="form-label">Package ID</label>
+      <input type="number" formControlName="packageId" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Day Number</label>
+      <input type="number" formControlName="dayNumber" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Place Name</label>
+      <input type="text" formControlName="placeName" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Description</label>
+      <textarea formControlName="placeDescription" class="form-control"></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Activities</label>
+      <textarea formControlName="activities" class="form-control"></textarea>
+    </div>
+
+      <div class="d-flex justify-content-between">
+      <button type="submit" class="btn btn-success">Save Changes</button>
+      <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+    </div>
+
+  </form>
+</div>

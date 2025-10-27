@@ -1,0 +1,22 @@
+
+<br>
+<br>
+<br>
+<div class="container mt-4">
+  <h2>My Wallet Transactions</h2>
+
+  <p *ngIf="message" class="text-center text-info">{{ message }}</p>
+
+  <div class="row g-3">
+    <div class="col-md-4" *ngFor="let t of transactions">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title text-primary">Transaction #{{ t.id }}</h5>
+          <p><strong>Amount:</strong> {{ t.transactionAmount | currency }}</p>
+          <p><strong>Type:</strong> {{ t.transactionType }}</p>
+          <p><strong>Date:</strong> {{ t.transactionDate | date: 'medium' }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

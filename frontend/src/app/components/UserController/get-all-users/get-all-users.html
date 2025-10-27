@@ -1,0 +1,44 @@
+<br>
+<br>
+<br><br><div class="container mt-4 text-center">
+  <h2>All Users</h2>
+
+  <div *ngIf="isLoading" class="text-muted mt-3">
+    <p>Loading users...</p>
+  </div>
+
+  <table *ngIf="!isLoading && users.length > 0" class="table table-striped mt-4">
+    <thead class="table-dark">
+      <tr>
+        <th>User ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Roles</th>
+        <th>Created At</th>
+        <th>Updated At</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.userId }}</td>
+        <td>{{ user.userName }}</td>
+        <td>{{ user.userEmail }}</td>
+        <td>{{ user.roles!.join(', ') }}</td>
+        <td>{{ user.createdAt || '—' }}</td>
+        <td>{{ user.updatedAt || '—' }}</td>
+        <td>
+          <button class="btn btn-danger btn-sm" (click)="deleteUser(user.userId)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="!isLoading && users.length === 0" class="mt-4">
+    <p class="text-muted">No users found.</p>
+  </div>
+
+  <div class="mt-3">
+    <button class="btn btn-secondary" (click)="backToAdmin()">Back</button>
+  </div>
+</div>

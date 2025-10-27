@@ -1,0 +1,58 @@
+<!-- get-all-transport-modes.html -->
+
+
+<br><br><br><br><div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h3 class="text-primary">All Transport Modes</h3>
+    <div>
+      <button class="btn btn-success me-2" (click)="addTransport()">+ Add Transport</button>
+      <button class="btn btn-secondary" (click)="backToAdmin()">Back</button>
+    </div>
+  </div>
+
+  <table class="table table-bordered table-hover" *ngIf="transports.length > 0; else noTransports">
+    <thead class="table-light">
+      <tr>
+        <th>ID</th>
+        <th>Package ID</th>
+        <th>Type</th>
+        <th>Provider</th>
+        <th>Departure</th>
+        <th>Arrival</th>
+        <th>Departure Time</th>
+        <th>Arrival Time</th>
+        <th>Seat Price</th>
+        <th>Available Seats</th>
+        <th>Image</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let t of transports">
+        <td>{{ t.id }}</td>
+        <td>{{ t.packageId }}</td>
+        <td>{{ t.transportType }}</td>
+        <td>{{ t.transportProvider }}</td>
+        <td>{{ t.departureCity }}</td>
+        <td>{{ t.arrivalCity }}</td>
+        <td>{{ t.departureTime | date:'short' }}</td>
+        <td>{{ t.arrivalTime | date:'short' }}</td>
+        <td>{{ t.seatPrice }}</td>
+        <td>{{ t.availableSeats }}</td>
+        <td>
+          <img *ngIf="t.transportImageUrl" [src]="t.transportImageUrl" alt="Image" width="70" />
+        </td>
+        <td>
+          <button class="btn btn-sm btn-primary me-2" (click)="editTransport(t.id!)">Edit</button>
+          <button class="btn btn-sm btn-danger" (click)="deleteTransport(t.id!)">Delete</button>
+            <button class="btn btn-sm btn-info me-1" (click)="viewTransportsByPackage(t.packageId)">By Package</button>
+  <button class="btn btn-sm btn-warning" (click)="viewAvailableTransports(t.packageId)">Available</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noTransports>
+    <p class="text-center text-muted">No transport modes found.</p>
+  </ng-template>
+</div>

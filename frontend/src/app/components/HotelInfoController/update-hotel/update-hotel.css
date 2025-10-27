@@ -1,0 +1,39 @@
+.container {
+  max-width: 900px;
+  margin: auto;
+  background-color: #f8f9fa;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+h2 {
+  font-weight: 700;
+  color: #0d6efd;
+}
+
+.form-control {
+  border-radius: 6px;
+}
+
+button {
+  min-width: 100px;
+}
+
+.btn-primary {
+  background-color: #0d6efd;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0b5ed7;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border: none;
+}
+
+.btn-secondary:hover {
+  background-color: #5c636a;
+}

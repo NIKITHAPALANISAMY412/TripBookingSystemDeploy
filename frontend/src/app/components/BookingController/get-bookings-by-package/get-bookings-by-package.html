@@ -1,0 +1,34 @@
+<div class="container mt-4">
+  <h2>Bookings for Package ID: {{ packageId }}</h2>
+
+  <button class="btn btn-secondary mb-3" (click)="back()">Back</button>
+
+  <table class="table table-bordered table-striped text-center" *ngIf="bookings.length > 0; else noBookings">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>User ID</th>
+        <th>Total Amount</th>
+        <th>Status</th>
+        <th>Booking Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let b of bookings">
+        <td>{{ b.id }}</td>
+        <td>{{ b.userId }}</td>
+        <td>{{ b.bookingTotalAmount | currency }}</td>
+        <td>{{ b.bookingStatus }}</td>
+        <td>{{ b.bookingDate | date:'short' }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm" (click)="viewBooking(b.id!)">View</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noBookings>
+    <p class="text-center text-muted">No bookings found for this package.</p>
+  </ng-template>
+</div>

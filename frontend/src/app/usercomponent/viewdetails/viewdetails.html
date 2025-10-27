@@ -1,0 +1,58 @@
+<br>
+<br>
+<br>
+<br>
+<div class="view-details-container">
+  <button class="btn btn-secondary mb-3" (click)="goBack()">← Back to Packages</button>
+
+  <div *ngIf="travelPackage" class="package-header">
+ <h2>{{ travelPackage.packageTitle }}</h2>
+<p>{{ travelPackage.packageDescription }}</p>
+<p>
+  <strong>From:</strong> {{ travelPackage.packageSourceCity }} |
+  <strong>To:</strong> {{ travelPackage.packageDestinationCity }} |
+  <strong>Price:</strong> ₹{{ travelPackage.packageBasePrice }} |
+  <strong>Duration:</strong> {{ travelPackage.packageDurationDays }} days
+</p>
+
+</div>
+
+
+  <section *ngIf="hotels.length > 0">
+    <h3>Hotels</h3>
+    <div class="grid">
+      <div class="card" *ngFor="let hotel of hotels">
+        <img [src]="hotel.hotelImageUrl || 'https://via.placeholder.com/300x200'" alt="{{hotel.hotelName}}">
+        <h5>{{ hotel.hotelName }}</h5>
+        <p>{{ hotel.hotelLocation }}</p>
+        <p>⭐ {{ hotel.hotelRating || 'N/A' }} | ₹{{ hotel.hotelPricePerNight }}</p>
+        <p>{{ hotel.hotelAmenities }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section *ngIf="itineraries.length > 0">
+    <h3>Itinerary</h3>
+    <div class="grid">
+      <div class="card" *ngFor="let plan of itineraries">
+        <h5>Day {{ plan.dayNumber }}: {{ plan.placeName }}</h5>
+        <p>{{ plan.placeDescription }}</p>
+        <p><strong>Activities:</strong> {{ plan.activities }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section *ngIf="transports.length > 0">
+    <h3>Transport Options</h3>
+    <div class="grid">
+      <div class="card" *ngFor="let t of transports">
+        <img [src]="t.transportImageUrl || 'https://via.placeholder.com/300x150'" alt="{{t.transportType}}">
+        <h5>{{ t.transportType }} - {{ t.transportProvider }}</h5>
+        <p>{{ t.departureCity }} → {{ t.arrivalCity }}</p>
+        <p>Seats: {{ t.availableSeats }} | Price: ₹{{ t.seatPrice }}</p>
+        <p>Departure: {{ t.departureTime }} | Arrival: {{ t.arrivalTime }}</p>
+      </div>
+    </div>
+  </section>
+
+</div>

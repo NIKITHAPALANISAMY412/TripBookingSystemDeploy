@@ -1,0 +1,34 @@
+<br><br><br><br>
+<div class="container mt-4">
+  <h2 class="mb-3">Active Travel Packages</h2>
+
+  <table class="table table-bordered table-striped text-center" *ngIf="activePackages.length > 0; else noActive">
+    <thead class="table-dark">
+      <tr>
+        <th>Title</th>
+        <th>Source</th>
+        <th>Destination</th>
+        <th>Price</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Slots</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of activePackages">
+        <td>{{ p.packageTitle }}</td>
+        <td>{{ p.packageSourceCity }}</td>
+        <td>{{ p.packageDestinationCity }}</td>
+        <td>{{ p.packageBasePrice | currency }}</td>
+        <td>{{ p.packageStartDate | date }}</td>
+        <td>{{ p.packageEndDate | date }}</td>
+        <td>{{ p.packageAvailableSlots }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noActive>
+    <p class="text-center text-muted">No active packages found.</p>
+  </ng-template>
+  <button type="button" class="btn btn-secondary ms-2" (click)="cancel()">Cancel</button>
+</div>

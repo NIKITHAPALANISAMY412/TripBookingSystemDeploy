@@ -1,0 +1,49 @@
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Update Hotel</h2>
+
+  <form [formGroup]="hotelForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="row g-3">
+
+      <div class="col-md-6">
+        <label>Package ID</label>
+        <input type="number" formControlName="packageId" class="form-control" />
+      </div>
+
+      <div class="col-md-6">
+        <label>Hotel Name</label>
+        <input type="text" formControlName="hotelName" class="form-control" />
+      </div>
+
+      <div class="col-md-6">
+        <label>Location</label>
+        <input type="text" formControlName="hotelLocation" class="form-control" />
+      </div>
+
+      <div class="col-md-6">
+        <label>Rating (1–5)</label>
+        <input type="number" formControlName="hotelRating" class="form-control" min="1" max="5" />
+      </div>
+
+      <div class="col-md-6">
+        <label>Price per Night (₹)</label>
+        <input type="number" formControlName="hotelPricePerNight" class="form-control" />
+      </div>
+
+      <div class="col-md-6">
+        <label>Amenities</label>
+        <textarea formControlName="hotelAmenities" class="form-control"></textarea>
+      </div>
+
+      <div class="col-md-6">
+        <label>Hotel Image URL</label>
+        <input type="text" formControlName="hotelImageUrl" class="form-control" />
+      </div>
+
+      <div class="col-12 text-center mt-4">
+        <button type="submit" class="btn btn-primary me-2">Update</button>
+        <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
+      </div>
+
+    </div>
+  </form>
+</div>

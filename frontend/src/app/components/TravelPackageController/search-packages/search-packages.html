@@ -1,0 +1,30 @@
+<div class="container mt-4">
+  <h3 class="mb-4">Search Results</h3>
+
+  <div *ngIf="packages.length > 0; else noResults" class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let package of packages">
+      <div class="card h-100 shadow-sm">
+        <img
+          [src]="package.packageImageUrl || 'https://via.placeholder.com/300x200'"
+          class="card-img-top"
+          alt="{{ package.packageTitle }}"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ package.packageTitle }}</h5>
+          <p class="card-text text-truncate">{{ package.packageDescription }}</p>
+          <ul class="list-group list-group-flush mb-2">
+            <li class="list-group-item"><strong>From:</strong> {{ package.packageSourceCity }}</li>
+            <li class="list-group-item"><strong>To:</strong> {{ package.packageDestinationCity }}</li>
+            <li class="list-group-item"><strong>Price:</strong> ₹{{ package.packageBasePrice }}</li>
+            <li class="list-group-item"><strong>Duration:</strong> {{ package.packageDurationDays }} days</li>
+          </ul>
+          <a class="btn btn-primary w-100" [routerLink]="['/userdashboard/package', package.id]">View Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noResults>
+    <p class="text-center text-muted">No packages found for the selected criteria.</p>
+  </ng-template>
+</div>

@@ -1,0 +1,67 @@
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Update Transport Mode</h2>
+
+  <form [formGroup]="transportForm" (ngSubmit)="onSubmit()">
+    <div class="row g-3">
+      <div class="col-md-6">
+        <label>Package ID</label>
+        <input type="number" class="form-control" formControlName="packageId" />
+      </div>
+
+      <div class="col-md-6">
+        <label>Transport Type</label>
+        <select class="form-control" formControlName="transportType">
+          <option value="">Select Type</option>
+          <option value="BUS">Bus</option>
+          <option value="TRAIN">Train</option>
+          <option value="FLIGHT">Flight</option>
+        </select>
+      </div>
+
+      <div class="col-md-6">
+        <label>Transport Provider</label>
+        <input type="text" class="form-control" formControlName="transportProvider" />
+      </div>
+
+      <div class="col-md-6">
+        <label>Departure City</label>
+        <input type="text" class="form-control" formControlName="departureCity" />
+      </div>
+
+      <div class="col-md-6">
+        <label>Arrival City</label>
+        <input type="text" class="form-control" formControlName="arrivalCity" />
+      </div>
+
+      <div class="col-md-6">
+        <label>Departure Time</label>
+        <input type="datetime-local" class="form-control" formControlName="departureTime" />
+      </div>
+
+      <div class="col-md-6">
+        <label>Arrival Time</label>
+        <input type="datetime-local" class="form-control" formControlName="arrivalTime" />
+      </div>
+
+      <div class="col-md-6">
+        <label>Seat Price (₹)</label>
+        <input type="number" class="form-control" formControlName="seatPrice" />
+      </div>
+
+      <div class="col-md-6">
+        <label>Available Seats</label>
+        <input type="number" class="form-control" formControlName="availableSeats" />
+      </div>
+
+      <div class="col-md-12">
+        <label>Transport Image URL</label>
+        <input type="text" class="form-control" formControlName="transportImageUrl" />
+      </div>
+
+      <div class="col-12 text-center mt-4">
+        <button type="submit" class="btn btn-primary me-2">Update</button>
+        <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
+      </div>
+    </div>
+  </form>
+</div>

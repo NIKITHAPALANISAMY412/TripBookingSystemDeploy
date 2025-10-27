@@ -1,0 +1,30 @@
+<br><br><br><br><div class="container mt-4">
+  <h2>All Wallets</h2>
+
+  <table class="table table-bordered table-striped text-center" *ngIf="wallets.length > 0; else noWallets">
+    <thead class="table-dark">
+      <tr>
+        <th>Wallet ID</th>
+        <th>User ID</th>
+        <th>Balance</th>
+        <th>Last Updated</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let w of wallets">
+        <td>{{ w.id }}</td>
+        <td>{{ w.userId }}</td>
+        <td>{{ w.walletBalance | currency }}</td>
+        <td>{{ w.lastUpdated | date: 'short' }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noWallets>
+    <p class="text-center text-muted">No wallets found.</p>
+  </ng-template>
+
+  <div class="text-center mt-3">
+    <button class="btn btn-secondary" (click)="backToAdmin()">Back</button>
+  </div>
+</div>

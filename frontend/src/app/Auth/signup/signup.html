@@ -1,0 +1,51 @@
+<div class="signup-container">
+  <h1 class="title">TravelEase</h1>
+  <p class="subtitle">Create your account to start your journey!</p>
+
+  <form (ngSubmit)="register()" #signupForm="ngForm" class="signup-form">
+    <input
+      type="text"
+      name="userName"
+      [(ngModel)]="user.userName"
+      placeholder="Username"
+      required
+    />
+
+    <input
+      type="email"
+      name="userEmail"
+      [(ngModel)]="user.userEmail"
+      placeholder="Email"
+      required
+    />
+
+    <input
+      type="password"
+      name="userPassword"
+      [(ngModel)]="user.userPassword"
+      placeholder="Password"
+      required
+    />
+
+    <!-- Role Dropdown -->
+    <select
+      name="role"
+      [(ngModel)]="selectedRoleId"
+      required
+      class="role-select"
+    >
+      <option value="" disabled selected>Select a role</option>
+      <option *ngFor="let role of roles" [value]="role.id">
+        {{ role.roleName }}
+      </option>
+    </select>
+
+    <button type="submit" class="btn-signup">Sign Up</button>
+  </form>
+
+  <p class="login-prompt">
+   <a (click)="goBack()">login</a>
+  </p>
+
+  <p class="text-info">{{ message }}</p>
+</div>

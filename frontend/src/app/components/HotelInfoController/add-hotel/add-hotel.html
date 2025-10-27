@@ -1,0 +1,64 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4 text-primary">Add New Hotel</h2>
+
+  <form [formGroup]="hotelForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="row g-3">
+      <div class="col-md-6">
+        <label class="form-label">Package ID</label>
+        <input type="number" formControlName="packageId" class="form-control" />
+        <div *ngIf="submitted && hotelForm.controls['packageId'].errors" class="text-danger">
+          Package ID is required.
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Hotel Name</label>
+        <input type="text" formControlName="hotelName" class="form-control" />
+        <div *ngIf="submitted && hotelForm.controls['hotelName'].errors" class="text-danger">
+          Hotel Name is required.
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Location</label>
+        <input type="text" formControlName="hotelLocation" class="form-control" />
+        <div *ngIf="submitted && hotelForm.controls['hotelLocation'].errors" class="text-danger">
+          Location is required.
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Rating (1–5)</label>
+        <input type="number" formControlName="hotelRating" class="form-control" min="1" max="5" />
+        <div *ngIf="submitted && hotelForm.controls['hotelRating'].errors" class="text-danger">
+          Rating must be between 1 and 5.
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Price per Night (₹)</label>
+        <input type="number" formControlName="hotelPricePerNight" class="form-control" min="0" />
+        <div *ngIf="submitted && hotelForm.controls['hotelPricePerNight'].errors" class="text-danger">
+          Price must be at least 0.
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Amenities</label>
+        <textarea formControlName="hotelAmenities" class="form-control" rows="3"></textarea>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Hotel Image URL</label>
+        <input type="text" formControlName="hotelImageUrl" class="form-control" />
+      </div>
+
+      <div class="col-12 text-center mt-4">
+        <button type="submit" class="btn btn-success me-2" [disabled]="hotelForm.invalid">
+          Save
+        </button>
+        <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
+      </div>
+    </div>
+  </form>
+</div>

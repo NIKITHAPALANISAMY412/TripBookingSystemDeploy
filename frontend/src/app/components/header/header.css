@@ -1,0 +1,49 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; 
+  z-index: 1000;
+  background: linear-gradient(90deg, #1a1a2e, #162447); /* dark gradient */
+  padding: 0.8rem 2rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #e0e0e0; /* light text on dark background */
+}
+
+form input {
+  min-width: 140px;
+  margin-right: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #444;
+  padding: 0.4rem 0.6rem;
+  background-color: #2a2a3d;
+  color: #fff;
+}
+
+form input:focus {
+  outline: none;
+  border-color: #4ecca3; /* subtle highlight */
+  box-shadow: 0 0 5px rgba(78,204,163,0.5);
+  background-color: #2a2a3d;
+  color: #fff;
+}
+
+form button {
+  background-color: #4ecca3;  /* dark teal for button */
+  border: none;
+  color: #1a1a2e; /* contrast text */
+  padding: 0.45rem 1rem;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+/* form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+} */

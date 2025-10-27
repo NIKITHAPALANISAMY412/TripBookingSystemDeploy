@@ -1,0 +1,24 @@
+.container {
+  max-width: 900px;
+  background-color: #f8f9fa;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+h2 {
+  font-weight: 700;
+  color: #0d6efd;
+}
+
+label {
+  font-weight: 500;
+}
+
+input, textarea {
+  border-radius: 8px;
+}
+
+button {
+  min-width: 120px;
+}

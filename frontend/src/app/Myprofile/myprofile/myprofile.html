@@ -1,0 +1,43 @@
+
+
+
+<br>
+<br>
+<br><div class="container mt-4" *ngIf="user as u; else loading">
+  <h2 class="text-center mb-3">My Profile</h2>
+
+  <table class="table table-bordered table-striped">
+    <tr>
+      <th>User ID</th>
+      <td>{{ u.userId }}</td>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <td>{{ u.userName }}</td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td>{{ u.userEmail }}</td>
+    </tr>
+    <tr>
+      <th>Roles</th>
+      <td>{{ u.roles.join(', ') }}</td>
+    </tr>
+    <tr *ngIf="u.createdAt">
+      <th>Created At</th>
+      <td>{{ u.createdAt }}</td>
+    </tr>
+    <tr *ngIf="u.updatedAt">
+      <th>Updated At</th>
+      <td>{{ u.updatedAt }}</td>
+    </tr>
+  </table>
+
+  <div class="text-center mt-3">
+    <button class="btn btn-secondary" (click)="goBack()">Back</button>
+  </div>
+</div>
+
+<ng-template #loading>
+  <p class="text-center mt-3">Loading user profile...</p>
+</ng-template>

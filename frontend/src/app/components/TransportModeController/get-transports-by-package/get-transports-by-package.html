@@ -1,0 +1,51 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>All Transport Modes for Package #{{ packageId }}</h2>
+    <!-- <button class="btn btn-success" (click)="addTransport()">+ Add Transport</button> -->
+  </div>
+
+  <table class="table table-bordered table-striped text-center" *ngIf="transports.length > 0; else noData">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Type</th>
+        <th>Provider</th>
+        <th>Departure City</th>
+        <th>Arrival City</th>
+        <th>Departure Time</th>
+        <th>Arrival Time</th>
+        <th>Seat Price</th>
+        <th>Available Seats</th>
+        <th>Image</th>
+        <!-- <th>Actions</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let t of transports">
+        <td>{{ t.id }}</td>
+        <td>{{ t.transportType }}</td>
+        <td>{{ t.transportProvider }}</td>
+        <td>{{ t.departureCity }}</td>
+        <td>{{ t.arrivalCity }}</td>
+        <td>{{ t.departureTime }}</td>
+        <td>{{ t.arrivalTime }}</td>
+        <td>{{ t.seatPrice | currency }}</td>
+        <td>{{ t.availableSeats }}</td>
+        <td>
+          <img *ngIf="t.transportImageUrl" [src]="t.transportImageUrl" alt="Transport" class="img-thumbnail transport-img" />
+        </td>
+        <!-- <td>
+          <button class="btn btn-sm btn-primary me-2" (click)="editTransport(t.id!)">Edit</button>
+          <button class="btn btn-sm btn-danger" (click)="deleteTransport(t.id!)">Delete</button>
+        </td> -->
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noData>
+    <p class="text-center text-muted">No transports available for this package.</p>
+  </ng-template>
+
+  <button class="btn btn-secondary mb-2" (click)="backToAll()">Back</button>
+
+</div>

@@ -1,0 +1,16 @@
+table {
+  width: 100%;
+  text-align: center;
+}
+
+th, td {
+  vertical-align: middle;
+}
+
+h2 {
+  font-weight: 600;
+}
+
+.btn {
+  min-width: 80px;
+}

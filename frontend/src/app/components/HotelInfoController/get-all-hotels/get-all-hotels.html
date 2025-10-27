@@ -1,0 +1,48 @@
+<br><br><br><br><div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>All Hotels</h2>
+    <button class="btn btn-secondary" (click)="goBack()">&#8592; Back</button>
+  </div>
+
+  <div class="text-end mb-3">
+    <button class="btn btn-success" (click)="addHotel()">+ Add Hotel</button>
+  </div>
+
+  <table class="table table-striped table-bordered" *ngIf="hotels.length > 0; else noData">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Package ID</th>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Rating</th>
+        <th>Price/Night</th>
+        <th>Amenities</th>
+        <th>Image</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let h of hotels">
+        <td>{{ h.id }}</td>
+        <td>{{ h.packageId }}</td>
+        <td>{{ h.hotelName }}</td>
+        <td>{{ h.hotelLocation }}</td>
+        <td>{{ h.hotelRating }}</td>
+        <td>{{ h.hotelPricePerNight | currency:'INR' }}</td>
+        <td>{{ h.hotelAmenities }}</td>
+        <td>
+          <img *ngIf="h.hotelImageUrl" [src]="h.hotelImageUrl" width="100" height="80" class="rounded" />
+        </td>
+        <td>
+          <button class="btn btn-sm btn-primary me-2" (click)="editHotel(h.id!)">Edit</button>
+          <button class="btn btn-sm btn-danger" (click)="deleteHotel(h.id!)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noData>
+    <div class="alert alert-info text-center">No hotels found.</div>
+  </ng-template>
+</div>

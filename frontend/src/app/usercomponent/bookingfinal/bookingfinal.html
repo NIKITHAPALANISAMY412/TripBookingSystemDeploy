@@ -1,0 +1,42 @@
+<br>
+<br>
+<br>
+<br>
+<h2>Before confirm,Check the Wallet has an required amount, or Add an Amount to Wallet</h2>
+<div *ngIf="travelPackage" 
+     class="booking-container" 
+     style="
+       max-width: 400px; 
+       margin: 20px auto; 
+       padding: 20px; 
+       border: 1px solid #ccc; 
+       border-radius: 8px; 
+       background-color: #ffffff; 
+       color: #222;
+       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+     ">
+  <h4 style="font-weight: bold; margin-bottom: 10px; font-size: 1.3em;">
+    {{ travelPackage.packageTitle }}
+  </h4>
+  
+  <p style="margin: 5px 0;">
+    <strong>From:</strong> {{ travelPackage.packageSourceCity || 'N/A' }} | 
+    <strong>To:</strong> {{ travelPackage.packageDestinationCity || 'N/A' }}
+  </p>
+     
+  <p style="margin: 5px 0;">
+    <strong>Price:</strong> ₹{{ travelPackage.packageBasePrice }} | 
+    <strong>Duration:</strong> {{ travelPackage.packageDurationDays || '-' }} days
+  </p>
+     
+  <p style="margin: 10px 0; line-height: 1.4;">
+    {{ travelPackage.packageDescription || 'No description available.' }}
+  </p>
+
+  <button class="btn btn-primary w-100" 
+          [disabled]="isPaymentProcessing"
+          style="font-weight: bold;"
+          (click)="confirmBooking()">
+    {{ isPaymentProcessing ? 'Processing Payment...' : 'Hold Your Slot' }}
+  </button>
+</div>
