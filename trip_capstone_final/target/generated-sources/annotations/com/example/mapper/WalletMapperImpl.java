@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-10-27T22:17:18+0530",
-    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.44.0.v20251001-1143, environment: Java 21.0.8 (Eclipse Adoptium)"
+    date = "2025-10-28T16:59:38+0530",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.7 (Oracle Corporation)"
 )
 @Component
 public class WalletMapperImpl implements WalletMapper {
@@ -24,8 +24,8 @@ public class WalletMapperImpl implements WalletMapper {
 
         walletDTO.setUserId( entityWalletOwnerId( entity ) );
         walletDTO.setId( entity.getId() );
-        walletDTO.setLastUpdated( entity.getLastUpdated() );
         walletDTO.setWalletBalance( entity.getWalletBalance() );
+        walletDTO.setLastUpdated( entity.getLastUpdated() );
 
         return walletDTO;
     }
@@ -40,8 +40,8 @@ public class WalletMapperImpl implements WalletMapper {
 
         walletEntity.setWalletOwner( walletDTOToUserEntity( dto ) );
         walletEntity.setId( dto.getId() );
-        walletEntity.setLastUpdated( dto.getLastUpdated() );
         walletEntity.setWalletBalance( dto.getWalletBalance() );
+        walletEntity.setLastUpdated( dto.getLastUpdated() );
 
         return walletEntity;
     }

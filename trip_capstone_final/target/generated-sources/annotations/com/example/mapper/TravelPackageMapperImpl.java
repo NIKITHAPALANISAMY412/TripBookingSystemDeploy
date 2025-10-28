@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-10-27T22:17:18+0530",
-    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.44.0.v20251001-1143, environment: Java 21.0.8 (Eclipse Adoptium)"
+    date = "2025-10-28T16:59:38+0530",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.7 (Oracle Corporation)"
 )
 @Component
 public class TravelPackageMapperImpl implements TravelPackageMapper {
@@ -22,19 +22,19 @@ public class TravelPackageMapperImpl implements TravelPackageMapper {
 
         TravelPackageDTO travelPackageDTO = new TravelPackageDTO();
 
-        travelPackageDTO.setCreatedAt( entity.getCreatedAt() );
         travelPackageDTO.setId( entity.getId() );
-        travelPackageDTO.setPackageAvailableSlots( entity.getPackageAvailableSlots() );
-        travelPackageDTO.setPackageBasePrice( entity.getPackageBasePrice() );
-        travelPackageDTO.setPackageDescription( entity.getPackageDescription() );
-        travelPackageDTO.setPackageDestinationCity( entity.getPackageDestinationCity() );
-        travelPackageDTO.setPackageDurationDays( entity.getPackageDurationDays() );
-        travelPackageDTO.setPackageEndDate( entity.getPackageEndDate() );
-        travelPackageDTO.setPackageImageUrl( entity.getPackageImageUrl() );
-        travelPackageDTO.setPackageSourceCity( entity.getPackageSourceCity() );
-        travelPackageDTO.setPackageStartDate( entity.getPackageStartDate() );
-        travelPackageDTO.setPackageStatus( entity.getPackageStatus() );
         travelPackageDTO.setPackageTitle( entity.getPackageTitle() );
+        travelPackageDTO.setPackageDescription( entity.getPackageDescription() );
+        travelPackageDTO.setPackageSourceCity( entity.getPackageSourceCity() );
+        travelPackageDTO.setPackageDestinationCity( entity.getPackageDestinationCity() );
+        travelPackageDTO.setPackageBasePrice( entity.getPackageBasePrice() );
+        travelPackageDTO.setPackageDurationDays( entity.getPackageDurationDays() );
+        travelPackageDTO.setPackageStartDate( entity.getPackageStartDate() );
+        travelPackageDTO.setPackageEndDate( entity.getPackageEndDate() );
+        travelPackageDTO.setPackageAvailableSlots( entity.getPackageAvailableSlots() );
+        travelPackageDTO.setPackageImageUrl( entity.getPackageImageUrl() );
+        travelPackageDTO.setPackageStatus( entity.getPackageStatus() );
+        travelPackageDTO.setCreatedAt( entity.getCreatedAt() );
 
         return travelPackageDTO;
     }
@@ -47,23 +47,23 @@ public class TravelPackageMapperImpl implements TravelPackageMapper {
 
         TravelPackageEntity travelPackageEntity = new TravelPackageEntity();
 
-        travelPackageEntity.setCreatedAt( dto.getCreatedAt() );
         travelPackageEntity.setId( dto.getId() );
-        travelPackageEntity.setPackageAvailableSlots( dto.getPackageAvailableSlots() );
-        travelPackageEntity.setPackageBasePrice( dto.getPackageBasePrice() );
+        travelPackageEntity.setPackageTitle( dto.getPackageTitle() );
         travelPackageEntity.setPackageDescription( dto.getPackageDescription() );
-        travelPackageEntity.setPackageDestinationCity( dto.getPackageDestinationCity() );
-        travelPackageEntity.setPackageDurationDays( dto.getPackageDurationDays() );
-        if ( dto.getPackageEndDate() != null ) {
-            travelPackageEntity.setPackageEndDate( new Date( dto.getPackageEndDate().getTime() ) );
-        }
-        travelPackageEntity.setPackageImageUrl( dto.getPackageImageUrl() );
         travelPackageEntity.setPackageSourceCity( dto.getPackageSourceCity() );
+        travelPackageEntity.setPackageDestinationCity( dto.getPackageDestinationCity() );
+        travelPackageEntity.setPackageBasePrice( dto.getPackageBasePrice() );
+        travelPackageEntity.setPackageDurationDays( dto.getPackageDurationDays() );
         if ( dto.getPackageStartDate() != null ) {
             travelPackageEntity.setPackageStartDate( new Date( dto.getPackageStartDate().getTime() ) );
         }
+        if ( dto.getPackageEndDate() != null ) {
+            travelPackageEntity.setPackageEndDate( new Date( dto.getPackageEndDate().getTime() ) );
+        }
+        travelPackageEntity.setPackageAvailableSlots( dto.getPackageAvailableSlots() );
+        travelPackageEntity.setPackageImageUrl( dto.getPackageImageUrl() );
         travelPackageEntity.setPackageStatus( dto.getPackageStatus() );
-        travelPackageEntity.setPackageTitle( dto.getPackageTitle() );
+        travelPackageEntity.setCreatedAt( dto.getCreatedAt() );
 
         return travelPackageEntity;
     }

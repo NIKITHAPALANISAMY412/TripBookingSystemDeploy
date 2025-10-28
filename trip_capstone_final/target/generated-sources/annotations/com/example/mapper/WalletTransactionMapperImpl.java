@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-10-27T22:17:18+0530",
-    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.44.0.v20251001-1143, environment: Java 21.0.8 (Eclipse Adoptium)"
+    date = "2025-10-28T16:59:38+0530",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.7 (Oracle Corporation)"
 )
 @Component
 public class WalletTransactionMapperImpl implements WalletTransactionMapper {
@@ -24,9 +24,9 @@ public class WalletTransactionMapperImpl implements WalletTransactionMapper {
 
         walletTransactionDTO.setWalletId( entityTransactionWalletId( entity ) );
         walletTransactionDTO.setId( entity.getId() );
+        walletTransactionDTO.setTransactionType( entity.getTransactionType() );
         walletTransactionDTO.setTransactionAmount( entity.getTransactionAmount() );
         walletTransactionDTO.setTransactionDate( entity.getTransactionDate() );
-        walletTransactionDTO.setTransactionType( entity.getTransactionType() );
 
         return walletTransactionDTO;
     }
@@ -41,9 +41,9 @@ public class WalletTransactionMapperImpl implements WalletTransactionMapper {
 
         walletTransactionEntity.setTransactionWallet( mapWalletIdToEntity( dto.getWalletId() ) );
         walletTransactionEntity.setId( dto.getId() );
+        walletTransactionEntity.setTransactionType( dto.getTransactionType() );
         walletTransactionEntity.setTransactionAmount( dto.getTransactionAmount() );
         walletTransactionEntity.setTransactionDate( dto.getTransactionDate() );
-        walletTransactionEntity.setTransactionType( dto.getTransactionType() );
 
         return walletTransactionEntity;
     }

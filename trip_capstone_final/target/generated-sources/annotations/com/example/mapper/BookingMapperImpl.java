@@ -10,8 +10,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-10-27T22:17:18+0530",
-    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.44.0.v20251001-1143, environment: Java 21.0.8 (Eclipse Adoptium)"
+    date = "2025-10-28T16:59:38+0530",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.7 (Oracle Corporation)"
 )
 @Component
 public class BookingMapperImpl implements BookingMapper {
@@ -27,10 +27,10 @@ public class BookingMapperImpl implements BookingMapper {
         bookingDTO.setUserId( entityBookedById( entity ) );
         bookingDTO.setPackageId( entityBookedPackageId( entity ) );
         bookingDTO.setTransportId( entityTransportId( entity ) );
-        bookingDTO.setBookingDate( entity.getBookingDate() );
-        bookingDTO.setBookingStatus( entity.getBookingStatus() );
-        bookingDTO.setBookingTotalAmount( entity.getBookingTotalAmount() );
         bookingDTO.setId( entity.getId() );
+        bookingDTO.setBookingTotalAmount( entity.getBookingTotalAmount() );
+        bookingDTO.setBookingStatus( entity.getBookingStatus() );
+        bookingDTO.setBookingDate( entity.getBookingDate() );
 
         return bookingDTO;
     }
@@ -46,10 +46,10 @@ public class BookingMapperImpl implements BookingMapper {
         bookingEntity.setBookedBy( mapUserById( dto.getUserId() ) );
         bookingEntity.setBookedPackage( mapPackageById( dto.getPackageId() ) );
         bookingEntity.setTransport( mapTransportById( dto.getTransportId() ) );
-        bookingEntity.setBookingDate( dto.getBookingDate() );
-        bookingEntity.setBookingStatus( dto.getBookingStatus() );
-        bookingEntity.setBookingTotalAmount( dto.getBookingTotalAmount() );
         bookingEntity.setId( dto.getId() );
+        bookingEntity.setBookingTotalAmount( dto.getBookingTotalAmount() );
+        bookingEntity.setBookingStatus( dto.getBookingStatus() );
+        bookingEntity.setBookingDate( dto.getBookingDate() );
 
         return bookingEntity;
     }

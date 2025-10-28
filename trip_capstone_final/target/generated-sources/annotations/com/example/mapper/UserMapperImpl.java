@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-10-27T22:17:19+0530",
-    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.44.0.v20251001-1143, environment: Java 21.0.8 (Eclipse Adoptium)"
+    date = "2025-10-28T16:59:38+0530",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.7 (Oracle Corporation)"
 )
 @Component
 public class UserMapperImpl implements UserMapper {
@@ -22,8 +22,8 @@ public class UserMapperImpl implements UserMapper {
 
         UserEntity userEntity = new UserEntity();
 
-        userEntity.setUserEmail( dto.getUserEmail() );
         userEntity.setUserName( dto.getUserName() );
+        userEntity.setUserEmail( dto.getUserEmail() );
         userEntity.setUserPassword( dto.getUserPassword() );
 
         return userEntity;
@@ -38,10 +38,10 @@ public class UserMapperImpl implements UserMapper {
         UserResponseDTO userResponseDTO = new UserResponseDTO();
 
         userResponseDTO.setUserId( entity.getId() );
+        userResponseDTO.setUserName( entity.getUserName() );
+        userResponseDTO.setUserEmail( entity.getUserEmail() );
         userResponseDTO.setCreatedAt( entity.getCreatedAt() );
         userResponseDTO.setUpdatedAt( entity.getUpdatedAt() );
-        userResponseDTO.setUserEmail( entity.getUserEmail() );
-        userResponseDTO.setUserName( entity.getUserName() );
 
         userResponseDTO.setRoles( mapRoles(entity.getRoles()) );
 

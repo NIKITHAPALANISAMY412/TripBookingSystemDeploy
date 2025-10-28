@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-10-27T22:17:18+0530",
-    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.44.0.v20251001-1143, environment: Java 21.0.8 (Eclipse Adoptium)"
+    date = "2025-10-28T16:59:38+0530",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.7 (Oracle Corporation)"
 )
 @Component
 public class TransportModeMapperImpl implements TransportModeMapper {
@@ -23,16 +23,16 @@ public class TransportModeMapperImpl implements TransportModeMapper {
         TransportModeDTO transportModeDTO = new TransportModeDTO();
 
         transportModeDTO.setPackageId( entityTravelPackageId( entity ) );
-        transportModeDTO.setArrivalCity( entity.getArrivalCity() );
-        transportModeDTO.setArrivalTime( entity.getArrivalTime() );
-        transportModeDTO.setAvailableSeats( entity.getAvailableSeats() );
-        transportModeDTO.setDepartureCity( entity.getDepartureCity() );
-        transportModeDTO.setDepartureTime( entity.getDepartureTime() );
         transportModeDTO.setId( entity.getId() );
-        transportModeDTO.setSeatPrice( entity.getSeatPrice() );
-        transportModeDTO.setTransportImageUrl( entity.getTransportImageUrl() );
-        transportModeDTO.setTransportProvider( entity.getTransportProvider() );
         transportModeDTO.setTransportType( entity.getTransportType() );
+        transportModeDTO.setTransportProvider( entity.getTransportProvider() );
+        transportModeDTO.setDepartureCity( entity.getDepartureCity() );
+        transportModeDTO.setArrivalCity( entity.getArrivalCity() );
+        transportModeDTO.setDepartureTime( entity.getDepartureTime() );
+        transportModeDTO.setArrivalTime( entity.getArrivalTime() );
+        transportModeDTO.setSeatPrice( entity.getSeatPrice() );
+        transportModeDTO.setAvailableSeats( entity.getAvailableSeats() );
+        transportModeDTO.setTransportImageUrl( entity.getTransportImageUrl() );
 
         return transportModeDTO;
     }
@@ -46,16 +46,16 @@ public class TransportModeMapperImpl implements TransportModeMapper {
         TransportModeEntity transportModeEntity = new TransportModeEntity();
 
         transportModeEntity.setTravelPackage( transportModeDTOToTravelPackageEntity( dto ) );
-        transportModeEntity.setArrivalCity( dto.getArrivalCity() );
-        transportModeEntity.setArrivalTime( dto.getArrivalTime() );
-        transportModeEntity.setAvailableSeats( dto.getAvailableSeats() );
-        transportModeEntity.setDepartureCity( dto.getDepartureCity() );
-        transportModeEntity.setDepartureTime( dto.getDepartureTime() );
         transportModeEntity.setId( dto.getId() );
-        transportModeEntity.setSeatPrice( dto.getSeatPrice() );
-        transportModeEntity.setTransportImageUrl( dto.getTransportImageUrl() );
-        transportModeEntity.setTransportProvider( dto.getTransportProvider() );
         transportModeEntity.setTransportType( dto.getTransportType() );
+        transportModeEntity.setTransportProvider( dto.getTransportProvider() );
+        transportModeEntity.setDepartureCity( dto.getDepartureCity() );
+        transportModeEntity.setArrivalCity( dto.getArrivalCity() );
+        transportModeEntity.setDepartureTime( dto.getDepartureTime() );
+        transportModeEntity.setArrivalTime( dto.getArrivalTime() );
+        transportModeEntity.setSeatPrice( dto.getSeatPrice() );
+        transportModeEntity.setAvailableSeats( dto.getAvailableSeats() );
+        transportModeEntity.setTransportImageUrl( dto.getTransportImageUrl() );
 
         return transportModeEntity;
     }

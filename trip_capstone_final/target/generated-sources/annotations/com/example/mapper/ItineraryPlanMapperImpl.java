@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-10-27T22:17:18+0530",
-    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.44.0.v20251001-1143, environment: Java 21.0.8 (Eclipse Adoptium)"
+    date = "2025-10-28T16:59:38+0530",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.7 (Oracle Corporation)"
 )
 @Component
 public class ItineraryPlanMapperImpl implements ItineraryPlanMapper {
@@ -23,11 +23,11 @@ public class ItineraryPlanMapperImpl implements ItineraryPlanMapper {
         ItineraryPlanDTO itineraryPlanDTO = new ItineraryPlanDTO();
 
         itineraryPlanDTO.setPackageId( entityTravelPackageId( entity ) );
-        itineraryPlanDTO.setActivities( entity.getActivities() );
-        itineraryPlanDTO.setDayNumber( entity.getDayNumber() );
         itineraryPlanDTO.setId( entity.getId() );
-        itineraryPlanDTO.setPlaceDescription( entity.getPlaceDescription() );
+        itineraryPlanDTO.setDayNumber( entity.getDayNumber() );
         itineraryPlanDTO.setPlaceName( entity.getPlaceName() );
+        itineraryPlanDTO.setPlaceDescription( entity.getPlaceDescription() );
+        itineraryPlanDTO.setActivities( entity.getActivities() );
 
         return itineraryPlanDTO;
     }
@@ -41,11 +41,11 @@ public class ItineraryPlanMapperImpl implements ItineraryPlanMapper {
         ItineraryPlanEntity itineraryPlanEntity = new ItineraryPlanEntity();
 
         itineraryPlanEntity.setTravelPackage( itineraryPlanDTOToTravelPackageEntity( dto ) );
-        itineraryPlanEntity.setActivities( dto.getActivities() );
-        itineraryPlanEntity.setDayNumber( dto.getDayNumber() );
         itineraryPlanEntity.setId( dto.getId() );
-        itineraryPlanEntity.setPlaceDescription( dto.getPlaceDescription() );
+        itineraryPlanEntity.setDayNumber( dto.getDayNumber() );
         itineraryPlanEntity.setPlaceName( dto.getPlaceName() );
+        itineraryPlanEntity.setPlaceDescription( dto.getPlaceDescription() );
+        itineraryPlanEntity.setActivities( dto.getActivities() );
 
         return itineraryPlanEntity;
     }

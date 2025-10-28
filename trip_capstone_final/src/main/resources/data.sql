@@ -38,9 +38,12 @@ VALUES (4, 'CREDIT', 1500.00);
 INSERT INTO wallet_transaction (wallet_id, transaction_type, transaction_amount) 
 VALUES (2, 'DEBIT', 500.00);
 
+
 -- ===========================
 -- TRAVEL PACKAGES (10 TOTAL)
 -- ===========================
+
+
 
 -- 1
 INSERT INTO travel_package 
@@ -100,7 +103,8 @@ VALUES
 INSERT INTO travel_package 
 (package_title, package_description, package_source_city, package_destination_city, package_base_price, package_duration_days, package_start_date, package_end_date, package_available_slots, package_image_url)
 VALUES 
-('Chandigarh to Shimla Family Getaway', 'Enjoy the hills, mall road, and toy train experience.', 'Chandigarh', 'Shimla', 8800.00, 3, DATE '2025-11-30', DATE '2025-12-03', 38, 'https://plus.unsplash.com/premium_photo-1697729733902-f8c92710db07?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c2hpbWxhfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=800');
+('Chandigarh to Shimla Family Getaway', 'Enjoy the hills, mall road, and toy train experience.', 'Chandigarh', 'Shimla', 8800.00, 3, DATE '2025-11-30', DATE '2025-12-03', 38, 'https://images.unsplash.com/photo-1670406312373-6d4d1776e4aa?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8a3V0Y2h8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=800');
+
 
 -- ===========================
 

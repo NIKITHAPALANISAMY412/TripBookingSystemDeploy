@@ -1,9 +1,9 @@
-CREATE TABLE IF NOT EXISTS app_role (
+CREATE TABLE app_role (
     role_id INT AUTO_INCREMENT PRIMARY KEY,
     role_name VARCHAR(50) UNIQUE NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS app_user (
+CREATE TABLE app_user (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     user_name VARCHAR(100) NOT NULL,
     user_email VARCHAR(100) UNIQUE NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS app_user (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
-CREATE TABLE IF NOT EXISTS app_user_role (
+CREATE TABLE app_user_role (
     user_role_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     role_id INT NOT NULL,
@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS app_user_role (
     CONSTRAINT unique_user_role UNIQUE (user_id, role_id)
 );
 
-CREATE TABLE IF NOT EXISTS app_wallet (
+CREATE TABLE app_wallet (
     wallet_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL UNIQUE,
     wallet_balance DECIMAL(15, 2) DEFAULT 0.00,
@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS app_wallet (
     CONSTRAINT fk_wallet_user FOREIGN KEY (user_id) REFERENCES app_user(user_id) ON DELETE CASCADE
 );
 
-CREATE TABLE IF NOT EXISTS wallet_transaction (
+CREATE TABLE wallet_transaction (
     transaction_id INT AUTO_INCREMENT PRIMARY KEY,
     wallet_id INT NOT NULL,
     transaction_type VARCHAR(20) NOT NULL, -- CREDIT or DEBIT
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS wallet_transaction (
     CONSTRAINT fk_wallet_txn FOREIGN KEY (wallet_id) REFERENCES app_wallet(wallet_id) ON DELETE CASCADE
 );
 
-CREATE TABLE IF NOT EXISTS travel_package (
+CREATE TABLE travel_package (
     package_id INT AUTO_INCREMENT PRIMARY KEY,
     package_title VARCHAR(150) NOT NULL,
     package_description CLOB,
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS travel_package (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE IF NOT EXISTS hotel_info (
+CREATE TABLE hotel_info (
     hotel_id INT AUTO_INCREMENT PRIMARY KEY,
     package_id INT NOT NULL,
     hotel_name VARCHAR(100),
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS hotel_info (
     CONSTRAINT fk_hotel_package FOREIGN KEY (package_id) REFERENCES travel_package(package_id) ON DELETE CASCADE
 );
 
-CREATE TABLE IF NOT EXISTS itinerary_plan (
+CREATE TABLE itinerary_plan (
     itinerary_id INT AUTO_INCREMENT PRIMARY KEY,
     package_id INT NOT NULL,
     day_number INT NOT NULL,
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS itinerary_plan (
     CONSTRAINT fk_itinerary_package FOREIGN KEY (package_id) REFERENCES travel_package(package_id) ON DELETE CASCADE
 );
 
-CREATE TABLE IF NOT EXISTS transport_mode (
+CREATE TABLE transport_mode (
     transport_id INT AUTO_INCREMENT PRIMARY KEY,
     package_id INT NOT NULL,
     transport_type VARCHAR(50), -- BUS / TRAIN / FLIGHT
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS transport_mode (
     CONSTRAINT fk_transport_package FOREIGN KEY (package_id) REFERENCES travel_package(package_id) ON DELETE CASCADE
 );
 
-CREATE TABLE IF NOT EXISTS app_booking (
+CREATE TABLE app_booking (
     booking_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     package_id INT NOT NULL,
@@ -104,7 +104,7 @@ CREATE TABLE IF NOT EXISTS app_booking (
     CONSTRAINT fk_booking_transport FOREIGN KEY (transport_id) REFERENCES transport_mode(transport_id)
 );
 
-CREATE TABLE IF NOT EXISTS booking_passenger (
+CREATE TABLE booking_passenger (
     passenger_id INT AUTO_INCREMENT PRIMARY KEY,
     booking_id INT,
     passenger_name VARCHAR(100),
