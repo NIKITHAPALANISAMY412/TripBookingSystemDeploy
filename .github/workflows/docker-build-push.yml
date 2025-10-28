@@ -1,1 +1,52 @@
+name: Build and Push Travel Booking Docker Images
 
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 🧱 Step 1: Checkout source code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 🧱 Step 2: Set up Docker Buildx (for advanced builds)
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      # 🧱 Step 3: Log in to Docker Hub
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      # 🧱 Step 4: Build & Push Backend Image
+      - name: Build and push backend image
+        uses: docker/build-push-action@v6
+        with:
+          context: ./trip_capstone_final
+          file: ./trip_capstone_final/Dockerfile
+          push: true
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/travel-booking-backend:latest
+            ${{ secrets.DOCKER_USERNAME }}/travel-booking-backend:${{ github.sha }}
+
+      # 🧱 Step 5: Build & Push Frontend Image
+      - name: Build and push frontend image
+        uses: docker/build-push-action@v6
+        with:
+          context: ./frontend
+          file: ./frontend/Dockerfile
+          push: true
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/travel-booking-frontend:latest
+            ${{ secrets.DOCKER_USERNAME }}/travel-booking-frontend:${{ github.sha }}
+
+      # 🧱 Step 6: Success message
+      - name: Success
+        run: echo "✅ Both backend and frontend Docker images built and pushed successfully!"
