@@ -27,18 +27,17 @@
       required
     />
 
-    <!-- Role Dropdown -->
-    <select
-      name="role"
-      [(ngModel)]="selectedRoleId"
-      required
-      class="role-select"
-    >
-      <option value="" disabled selected>Select a role</option>
-      <option *ngFor="let role of roles" [value]="role.id">
-        {{ role.roleName }}
-      </option>
-    </select>
+   <!-- Role Dropdown -->
+<select
+  name="role"
+  [(ngModel)]="selectedRoleId"
+  required
+  class="role-select"
+  disabled
+>
+  <option [value]="2">USER</option>
+</select>
+
 
     <button type="submit" class="btn-signup">Sign Up</button>
   </form>

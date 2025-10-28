@@ -7,7 +7,6 @@ import { UserResponseDTO } from '../../models/UserResponseDTO.model';
 import { RoleDTO } from '../../models/RoleDTO.model';
 import { AuthService } from '../../services/auth-service';
 import { UserService } from '../../services/user-service';
-import { RoleService } from '../../services/role-service';
 
 @Component({
   selector: 'app-signup',
@@ -30,9 +29,9 @@ export class Signup implements OnInit {
 
   constructor(
     private userService: UserService,
-    private roleService: RoleService,
     private authService: AuthService,
-    private router: Router, private location: Location
+    private router: Router,
+    private location: Location
   ) {
     const userId = this.authService.retrieveUserId();
     if (userId) {
@@ -41,34 +40,19 @@ export class Signup implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loadRoles();
-  }
-
-  loadRoles(): void {
-    this.roleService.getAllRoles().subscribe({
-      next: (res: RoleDTO[]) => {
-        this.roles = res;
-      },
-      error: (err) => {
-        console.error('Error fetching roles:', err);
-        this.message = 'Unable to load roles. Please try again later.';
-      },
-    });
+    // Instead of calling backend, manually assign the role
+    this.roles = [{ id: 2, roleName: 'USER' }];
+    this.selectedRoleId = 2; // Preselect the USER role
   }
 
   register(): void {
-    if (
-      !this.user.userName ||
-      !this.user.userEmail ||
-      !this.user.userPassword ||
-      !this.selectedRoleId
-    ) {
+    if (!this.user.userName || !this.user.userEmail || !this.user.userPassword) {
       this.message = 'Please fill all fields.';
       return;
     }
 
-    // Assign selected role to roleIds array
-    this.user.roleIds = [this.selectedRoleId];
+    // Assign the fixed USER role
+    this.user.roleIds = [2];
 
     this.userService.addUser(this.user).subscribe({
       next: (res: UserResponseDTO) => {
@@ -82,7 +66,7 @@ export class Signup implements OnInit {
     });
   }
 
-   goBack(): void {
+  goBack(): void {
     this.location.back();
   }
 }

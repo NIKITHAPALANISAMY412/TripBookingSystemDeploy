@@ -1,12 +1,89 @@
-.container {
+/* Container */
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, #007bff, #00bfa5);
+  min-height: 100vh;
+  color: #fff;
+  padding: 2rem;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Title */
+.profile-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Grid layout */
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 2rem;
+  background: #ffffff;
+  color: #333;
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 100%;
   max-width: 600px;
-  margin: auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-table {
-  background-color: #f8f9fa;
+/* Each grid item */
+.profile-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
 }
 
-h2 {
+.label {
+  font-weight: 600;
   color: #007bff;
+}
+
+.value {
+  background: #f8f9fa;
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+}
+
+/* Back button */
+.btn-back {
+  margin-top: 1.5rem;
+  background: #00bfa5;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-back:hover {
+  background: #008c7a;
+}
+
+/* Loading text */
+.loading-text {
+  color: #fff;
+  text-align: center;
+  font-size: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .profile-grid {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+
+  .profile-title {
+    font-size: 1.6rem;
+  }
 }

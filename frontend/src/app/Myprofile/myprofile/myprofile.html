@@ -1,43 +1,44 @@
+<br><br><br>
+<div class="profile-container" *ngIf="user as u; else loading">
+  <h2 class="profile-title">My Profile</h2>
 
+  <div class="profile-grid">
+    <div class="profile-item">
+      <span class="label">User ID</span>
+      <span class="value">{{ u.userId }}</span>
+    </div>
 
+    <div class="profile-item">
+      <span class="label">Name</span>
+      <span class="value">{{ u.userName }}</span>
+    </div>
 
-<br>
-<br>
-<br><div class="container mt-4" *ngIf="user as u; else loading">
-  <h2 class="text-center mb-3">My Profile</h2>
+    <div class="profile-item">
+      <span class="label">Email</span>
+      <span class="value">{{ u.userEmail }}</span>
+    </div>
 
-  <table class="table table-bordered table-striped">
-    <tr>
-      <th>User ID</th>
-      <td>{{ u.userId }}</td>
-    </tr>
-    <tr>
-      <th>Name</th>
-      <td>{{ u.userName }}</td>
-    </tr>
-    <tr>
-      <th>Email</th>
-      <td>{{ u.userEmail }}</td>
-    </tr>
-    <tr>
-      <th>Roles</th>
-      <td>{{ u.roles.join(', ') }}</td>
-    </tr>
-    <tr *ngIf="u.createdAt">
-      <th>Created At</th>
-      <td>{{ u.createdAt }}</td>
-    </tr>
-    <tr *ngIf="u.updatedAt">
-      <th>Updated At</th>
-      <td>{{ u.updatedAt }}</td>
-    </tr>
-  </table>
+    <div class="profile-item">
+      <span class="label">Roles</span>
+      <span class="value">{{ u.roles.join(', ') }}</span>
+    </div>
+
+    <div class="profile-item" *ngIf="u.createdAt">
+      <span class="label">Created At</span>
+      <span class="value">{{ u.createdAt }}</span>
+    </div>
+
+    <div class="profile-item" *ngIf="u.updatedAt">
+      <span class="label">Updated At</span>
+      <span class="value">{{ u.updatedAt }}</span>
+    </div>
+  </div>
 
   <div class="text-center mt-3">
-    <button class="btn btn-secondary" (click)="goBack()">Back</button>
+    <button class="btn-back" (click)="goBack()">Back</button>
   </div>
 </div>
 
 <ng-template #loading>
-  <p class="text-center mt-3">Loading user profile...</p>
+  <p class="loading-text">{{ message || 'Loading user profile...' }}</p>
 </ng-template>
