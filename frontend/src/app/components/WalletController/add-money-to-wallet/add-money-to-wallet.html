@@ -8,7 +8,7 @@
   <h2>Add Money to Wallet</h2>
 
   <div *ngIf="currentWallet" class="mb-3">
-    <p><strong>Current Balance:</strong> ₹{{ currentWallet.walletBalance | currency }}</p>
+    <p><strong>Current Balance:</strong> ₹{{ currentWallet.walletBalance }}</p>
   </div>
 
   <form (ngSubmit)="addMoney()" #addForm="ngForm">
